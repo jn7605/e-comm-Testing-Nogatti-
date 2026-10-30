@@ -2,7 +2,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 public class postAd {
 
@@ -31,13 +30,17 @@ public class postAd {
     public void pricingCategory(){
 
         WebElement price = driver.findElement(By.id("price"));
-        WebElement categoryDropdown = driver.findElement(By.id("category"));
 
         price.sendKeys("100");
         
-        //Use " Select" class to select category from dropdown
-        Select categorySelect = new Select(categoryDropdown);
-        categorySelect.selectByValue("Electronics");
+        System.out.println("Selecting category from dropdown");
+        WebElement categoryDropdown = driver.findElement(
+                By.xpath("//button[@role='combobox' and .//*[normalize-space()='Select a category']]"));
+        categoryDropdown.click();
+
+        WebElement electronicsOption = driver.findElement(
+                By.xpath("//*[@role='option' and normalize-space()='Other Electronics']"));
+        electronicsOption.click();
     }
 
     public void images(){
