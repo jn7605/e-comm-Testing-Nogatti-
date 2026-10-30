@@ -12,6 +12,11 @@ public class postAd {
         this.driver = driver;
     }
 
+    public void moveToPostAdPage() {
+        WebElement postAdButton = driver.findElement(By.xpath("(//a[@href=\"/post-ad\"])[2]"));
+        postAdButton.click();
+    }
+
     public void itemDetails(){
 
         WebElement titleName = driver.findElement(By.id("title"));
@@ -32,7 +37,7 @@ public class postAd {
         
         //Use " Select" class to select category from dropdown
         Select categorySelect = new Select(categoryDropdown);
-        categorySelect.selectByValue("TVs");
+        categorySelect.selectByValue("Electronics");
     }
 
     public void images(){

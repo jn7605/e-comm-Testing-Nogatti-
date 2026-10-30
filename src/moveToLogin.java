@@ -14,9 +14,13 @@ public class moveToLogin {
 
     public void moveToLoginPage() {
     
-        driver.findElement(By.linkText("Go Home")).click();
+        
+        // driver.findElement(By.linkText("Go Home")).click();
 
-        WebElement SignInButton = driver.findElement(By.linkText("Sign In"));
+        //maximize the window
+        driver.manage().window().maximize();    
+       
+        WebElement SignInButton = driver.findElement(By.xpath("(//a[@href=\"/auth\"])[1]"));
         SignInButton.click();
 
     }

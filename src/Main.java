@@ -1,4 +1,6 @@
 
+//All implemented are started. Drive from here.
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,9 +14,10 @@ class Main{
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
+        moveToLogin moveToLoginOBJ = new moveToLogin(driver);
+
         driver.get("https://buyorsell-fe.vercel.app/");
 
-        moveToLogin moveToLoginOBJ = new moveToLogin(driver);
         moveToLoginOBJ.moveToLoginPage();
 
 
@@ -23,12 +26,10 @@ class Main{
         Login loginOBJ = new Login(driver);
         loginOBJ.login("ramsith@example.com", "P@ssw0rd123!");
 
-
-        // driver.get("https://buyorsell-fe.vercel.app/post-ad");
-
-        // postAdOBJ.itemDetails();
-        // postAdOBJ.pricingCategory();
-        // postAdOBJ.images();
+        postAdOBJ.moveToPostAdPage();
+        postAdOBJ.itemDetails();
+        postAdOBJ.pricingCategory();
+        postAdOBJ.images();
 
     }
 
